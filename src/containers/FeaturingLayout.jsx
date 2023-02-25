@@ -1,7 +1,14 @@
 import React from 'react'
+import useGetProducts from '../hooks/useGetProducts'
 
-function featuringLayout(props) {
-  return (
+const API = "https://api.escuelajs.co/api/v1/products?limit=2&offset=1"
+
+
+function featuringLayout() {
+
+const featuring = useGetProducts(API)
+
+return (
 <section>
   <div className="max-w-screen-xl px-4 py-8 mx-auto sm:py-12 sm:px-6 lg:px-8">
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-3 lg:items-stretch">
@@ -27,45 +34,31 @@ function featuringLayout(props) {
 
       <div className="lg:col-span-2 lg:py-8">
         <ul className="grid grid-cols-2 gap-4">
-          <li>
-            <a href={props.Url} className="block group">
-              <img
-                src={props.image}
-                alt={props.title}
-                className="object-fit w-full rounded aspect-square"
-              />
-
-              <div className="mt-3">
-                <h3
-                  className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
-                >
-                  {props.name}
-                </h3>
-
-                <p className="mt-1 text-sm text-gray-700">${props.price}</p>
-              </div>
-            </a>
-          </li>
-
-          <li>
-            <a href={props.UrlTwo} className="block group">
-              <img
-                src={props.imageTwo}
-                alt={props.titleTwo}
-                className="object-fit w-full rounded aspect-square"
-              />
-
-              <div className="mt-3">
-                <h3
-                  className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
-                >
-                  {props.nameTwo}
-                </h3>
-
-                <p className="mt-1 text-sm text-gray-700">${props.priceTwo}</p>
-              </div>
-            </a>
-          </li>
+          {
+            featuring.map((item) => {
+              return (
+                <li key={item.id}>
+                  <a href='#' className="block group">
+                    <img
+                      src={item.images}
+                      alt={item.title}
+                      className="object-fit w-full rounded aspect-square"
+                    />
+      
+                    <div className="mt-3">
+                      <h3
+                        className="font-medium text-gray-900 group-hover:underline group-hover:underline-offset-4"
+                      >
+                        {item.title}
+                      </h3>
+      
+                      <p className="mt-1 text-sm text-gray-700">${item.price}</p>
+                    </div>
+                  </a>
+                </li>
+                )
+            })
+          }
         </ul>
       </div>
     </div>
