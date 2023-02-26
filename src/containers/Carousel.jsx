@@ -23,7 +23,7 @@ const Carousel = () => {
 
     carouselImages.map( (img) => {
       return (
-        <swiper-slide key={carouselImages.indexOf(img)}><img src={img} alt="slide" className='w-full h-[500px]' /></swiper-slide>
+        <swiper-slide key={carouselImages.indexOf(img)}><img src={img} alt="slide" className='w-full h-[500px] min-[320px]:max-md:h-[250px]' /></swiper-slide>
       )
     })
 

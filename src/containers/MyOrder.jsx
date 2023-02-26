@@ -21,11 +21,11 @@ function MyOrder() {
     }
 
   return (
-    <div className="absolute rounded-b z-20 top-[4.5rem] right-0">
-        <div className="shadow-xl w-64">
+    <div className="absolute rounded-b z-20 top-[5rem] right-0 min-[320px]:max-md:static">
+        <div className="shadow-xl w-64 bg-gray-700">
             {state.cart.map( item =>    
 
-                <div className="p-2 flex bg-white hover:bg-gray-100 cursor-pointer border-b border-gray-100" key={item.id}>
+                <div className="p-2 flex bg-white hover:bg-gray-100 cursor-pointer border-b border-gray-100 dark:bg-gray-700 dark:divide-gray-600 dark:text-white hover:bg-gray-800" key={item.id}>
                     <div className="p-2 w-12"><img src={item.images} alt={item.title}/>
                     </div>
                     <div className="flex-auto text-sm w-32">
@@ -46,13 +46,9 @@ function MyOrder() {
                 </div>
             )}
         </div>
-        <div className="p-4 justify-center flex bg-white">
-            <a href='/checkout' className="text-base  undefined  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer 
-            hover:bg-teal-700 hover:text-teal-100 
-            bg-teal-100 
-            text-teal-700 
-            border duration-200 ease-in-out 
-            border-teal-600 transition"
+        <div className="p-4 justify-center flex bg-white dark:bg-gray-700 dark:divide-gray-600 dark:text-white hover:bg-gray-800">
+            <a href='/checkout' className="text-base  undefined  hover:scale-110 focus:outline-none flex justify-center px-4 py-2 rounded font-bold cursor-pointer hover:bg-teal-700 hover:text-teal-100 bg-teal-100 text-teal-700 
+            border duration-200 ease-in-out border-teal-600 transition"
             >
                 Checkout ${totalOrder()}
             </a>

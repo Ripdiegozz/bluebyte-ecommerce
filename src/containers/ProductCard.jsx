@@ -8,12 +8,11 @@ const ProductCard = (props)  => {
 
 	const handleClick = item => {
 		addToCart(item);
-    console.log(item);
 	}
 
 
   return (
-<a href='#' className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg" id='card'>
+<a href='#' className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg min-[320px]:max-md:w-[75%]">
   <button
     className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
   >
@@ -41,11 +40,11 @@ const ProductCard = (props)  => {
     className="object-fit w-full h-64 transition duration-500 group-hover:scale-105 sm:h-72"
   />
 
-  <div className="relative p-6">
+  <div className="relative p-6 flex flex-col gap-3 min-[320px]:max-md:gap-4">
 
     <h3 className="mt-4 text-lg font-medium text-gray-900">{props.title}</h3>
 
-    <p className="mt-1.5 text-sm text-gray-700">${props.price}</p>
+    <p className="mt-1.5 text-md text-gray-700">${props.price}</p>
 
     <button
       className="block w-full p-4 text-sm text-white font-medium transition bg-[#4762fc] rounded hover:scale-105" onClick={() => handleClick(props)}

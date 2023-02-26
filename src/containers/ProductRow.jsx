@@ -15,7 +15,7 @@ const ProductRow = () => {
         <h2>Populares</h2>
         <a href="./products.html">Ver todos<i className="fa-solid fa-arrow-right-long"></i></a>
       </div>
-      <div className="cards__box flex">
+      <div className="cards__box">
       {products.map(product => (
               <ProductCard 
                 key= {product.id}
