@@ -4,7 +4,7 @@ import useGetUserCart from "../hooks/useGetUserCart"
 
 const productCard = (props)  => {
   
-  const { addToCart, state } = useContext(AppContext);
+  const { addToCart, state, removeFromCart} = useContext(AppContext);
 
   const [added, setAdded] = useState(false)
 
@@ -56,7 +56,7 @@ const productCard = (props)  => {
     <button
       className={"block w-full p-4 text-sm text-white font-medium transition bg-[#4762fc] rounded hover:scale-105" + (added ? " bg-red-700" : null)} onClick={() => handleClick(props)}
     >
-       {added ? <p>Delete from cart</p> : <p>Add to cart</p> }
+       {added ? <p>Remove from cart</p> : <p>Add to cart</p> }
     </button>
   </div>
 </a>
