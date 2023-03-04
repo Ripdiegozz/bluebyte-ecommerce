@@ -22,6 +22,7 @@ function Header() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
 
   return (
+    
     <header className="w-full flex items-center shadow-sm fixed z-20 bg-gray-50">
       <nav className="relative w-full min-h-[9vh] flex flex-wrap items-center justify-between px-2 py-3 bg-white dark:bg-gray-700 dark:text-white">
         <div className="container p-2 mx-auto flex flex-wrap items-center justify-between">
@@ -69,14 +70,17 @@ function Header() {
                       <a href="/products" className="text-xl font-montserrat font-bold hover:text-[#4762fc]">Products</a>
                       <button className="flex items-center gap-2 hover:text-[#4762fc] transition-colors" onClick={handleToggle}>
                           <i className="fa-solid fa-circle-user text-2xl"></i>
-                          <p className="text-xl font-montserrat font-bold">Entrar</p>
+                          <p className="text-xl font-montserrat font-bold">Login</p>
                       </button>
                       {toggle ? <UserMenu/> : null}
                     </div>
               </li>
               <li className='nav-item flex justify-center items-center pb-2 min-[320px]:max-md:flex-col min-[320px]:max-md:gap-10'>
                   <button className="flex items-center"><i className="fa-solid fa-cart-shopping text-2xl hover:text-[#4762fc] transition-colors" onClick={handleOrdersToggle}></i>
-                  {state.cart.length > 0 ? <div className='absolute top-2 bg-[#4762fc] px-[5px] rounded-full text-xs right-[7.5rem] text-white'>{state.cart.length}</div> : null}
+                    {state.cart.length > 0 ? 
+                    <div className="top-3 absolute right-16 min-[320px]:max-md:hidden">
+                      <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">{state.cart.length}</p>
+                    </div>: null}
                   </button>
                   {toggleOrders ? <MyOrder/> : null}
               </li>              
@@ -85,15 +89,9 @@ function Header() {
         </div>
       </nav>
     </header>
+
   );
 }
-             /*
-            
-
-                
-              </div>
-              
-</ul> */
 
 export default Header
 

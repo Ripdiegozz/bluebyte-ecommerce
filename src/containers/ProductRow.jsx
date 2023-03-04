@@ -12,8 +12,8 @@ const ProductRow = () => {
   return (
     <section className="products__row" id="pc-builds">
       <div className="products__header flex">
-        <h2>Populares</h2>
-        <a href="./products.html">Ver todos<i className="fa-solid fa-arrow-right-long"></i></a>
+        <h2>Popular</h2>
+        <a href="./products.html">See all<i className="fa-solid fa-arrow-right-long"></i></a>
       </div>
       <div className="cards__box">
       {products.map(product => (

@@ -1,13 +1,20 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import AppContext from '../context/AppContext';
+import useGetUserCart from "../hooks/useGetUserCart"
 
-const ProductCard = (props)  => {
+const productCard = (props)  => {
   
-  const { addToCart } = useContext(AppContext);
+  const { addToCart, state } = useContext(AppContext);
 
+  const [added, setAdded] = useState(false)
+
+  const items = useGetUserCart();
+
+  state.cart = items;
 
 	const handleClick = item => {
-		addToCart(item);
+		added ? removeFromCart(item) : addToCart(item);
+    setAdded(!added);
 	}
 
 
@@ -47,13 +54,13 @@ const ProductCard = (props)  => {
     <p className="mt-1.5 text-md text-gray-700">${props.price}</p>
 
     <button
-      className="block w-full p-4 text-sm text-white font-medium transition bg-[#4762fc] rounded hover:scale-105" onClick={() => handleClick(props)}
+      className={"block w-full p-4 text-sm text-white font-medium transition bg-[#4762fc] rounded hover:scale-105" + (added ? " bg-red-700" : null)} onClick={() => handleClick(props)}
     >
-      Add to Cart
+       {added ? <p>Delete from cart</p> : <p>Add to cart</p> }
     </button>
   </div>
 </a>
   )
 }
 
-export default ProductCard
+export default productCard

@@ -1,16 +1,20 @@
 import React, {useContext} from 'react'
 import AppContext from '../context/AppContext'
-
+import getUserCart from '../hooks/useGetUserCart'
 
 function Checkout() {
 
-  const { state } = useContext(AppContext)
+  const { removeFromCart } = useContext(AppContext)
+
+    const handleRemove = (item) => {
+        removeFromCart(item)
+  }
+
+  const items = getUserCart()
 
   const totalOrder = () => {
     const reducer = (accumulator, currentValue) => accumulator + currentValue.price
-
-    const total = state.cart.reduce(reducer, 0)
-
+    const total = items.reduce(reducer, 0)
     return total
 }
 
@@ -39,25 +43,30 @@ function Checkout() {
           <div className="flow-root">
             <ul className="-my-4 divide-y divide-gray-100">
               {
-                state.cart.map(item => 
-                  <li className="flex items-center py-4" key={item.id}>
-                    <img
-                      src={item.images}
-                      alt={item.name}
-                      className="object-cover w-16 h-16 rounded"
-                    />
-
-                    <div className="ml-4">
-                      <h3 className="text-sm text-gray-900">{item.name}</h3>
-
-                      <dl className="mt-0.5 space-y-px text-[10px] text-gray-600">
-                        <div>
-                          <dt className="inline">Id:</dt>
-                          <dd className="inline">{item.id}</dd>
-                        </div>
-                      </dl>
+                items.map(item => 
+                  <div className="md:flex items-center py-8 border-t border-gray-200" key={item.id}>
+                    <div className="w-1/4">
+                    <img src={item.images[0]} alt={item.title} className="w-full h-full object-center object-cover" />
                     </div>
-                  </li>            
+                    <div className="md:pl-3 md:w-3/4 w-full">
+                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">ID: {item.id}</p>
+                    <div className="flex items-center justify-between w-full pt-1 text-black">
+                        <p className="text-base font-black leading-none text-gray-800">{item.title}</p>
+                        <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
+                        <option>01</option>
+                        <option>02</option>
+                        <option>03</option>
+                        </select>
+                    </div>
+                    <div className="flex items-center justify-between pt-5 pr-6">
+                        <div className="flex itemms-center">
+                        <p className="text-xs leading-3 underline text-gray-800 cursor-pointer">Add to favorites</p>
+                        <p className="text-xs leading-3 underline text-red-500 pl-5 cursor-pointer" onClick={ () => handleRemove(item)}>Remove</p>
+                        </div>
+                        <p className="text-base font-black leading-none text-gray-800">${item.price}</p>
+                    </div>
+                    </div>
+                </div>            
                 )
               }
             </ul>
