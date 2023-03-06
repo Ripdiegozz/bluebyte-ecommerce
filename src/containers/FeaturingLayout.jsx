@@ -1,7 +1,7 @@
 import React from 'react'
 import useGetProducts from '../hooks/useGetProducts'
 
-const API = "https://api.escuelajs.co/api/v1/products?limit=2&offset=1"
+const API = "https://fakestoreapi.com/products/category/electronics?limit=2"
 
 
 function featuringLayout() {
@@ -38,9 +38,9 @@ return (
             featuring.map((item) => {
               return (
                 <li key={item.id}>
-                  <a href='#' className="block group">
+                  <a href={"/product/" + item.id} className="block group">
                     <img
-                      src={item.images}
+                      src={item.image}
                       alt={item.title}
                       className="object-fit w-full rounded aspect-square"
                     />

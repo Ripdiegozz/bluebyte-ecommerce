@@ -3,7 +3,7 @@ import ProductCard from '../containers/ProductCard'
 import useGetProducts from '../hooks/useGetProducts'
 import "../assets/css/containers/cards__box--total.css"
 
-const API = "https://api.escuelajs.co/api/v1/products?limit=25&offset=1"
+const API = "https://fakestoreapi.com/products?limit=25"
 
 const ProductRow = () => {
 
@@ -20,7 +20,7 @@ const ProductRow = () => {
               <ProductCard 
                 key= {product.id}
                 id = {product.id}
-                images = {product.images}
+                images = {product.image}
                 title = {product.title}
                 price = {product.price}
               />
