@@ -5,16 +5,12 @@ import NotFound from "../pages/NotFound"
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import CheckoutPage from '../pages/Checkout'
-import ProductDetail from '../containers/ProductDetail'
+import ProductDetail from '../pages/ProductDetail'
 
 import AppContext from '../context/AppContext'
 import useInitialState from '../hooks/useInitialState'
 
 import './App.css'
-
-//TODO: https://github.com/platzi/react-practico/issues bugs a arreglar de mi tienda
-
-//
 
 function App() {  
 
