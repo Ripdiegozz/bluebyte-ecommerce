@@ -38,7 +38,7 @@ return (
             featuring.map((item) => {
               return (
                 <li key={item.id}>
-                  <a href={"/product/" + item.id} className="block group">
+                  <a href={`/product/${item.id}`} className="block group">
                     <img
                       src={item.image}
                       alt={item.title}

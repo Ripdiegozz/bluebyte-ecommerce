@@ -19,7 +19,7 @@ const productCard = (props)  => {
 
 
   return (
-<a href={"/product/" + props.id} className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg min-[320px]:max-md:w-[75%]">
+<a href={`/product/${props.id}`} className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg min-[320px]:max-md:w-[75%]">
   <button
     className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
   >
