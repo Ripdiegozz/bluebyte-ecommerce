@@ -5,7 +5,7 @@ import "../index.css"
 function Footer() {
   return (
     <footer className="footer">
-    <div className="footer__addr">
+    <div className="footer__addr min-[320px]:max-md:w-full">
       <h1 className="footer__logo font-montserrat font-bold">Bluebyte Inc.</h1>
           
       <h2 className="font-montserrat font-bold">Contacto</h2>
@@ -16,7 +16,7 @@ function Footer() {
       </address>
     </div>
 
-    <ul className="footer__nav">
+    <ul className="footer__nav min-[320px]:max-md:w-full">
         <li className="nav__item">     
             <ul className="nav__ul">
               <li>

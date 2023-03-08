@@ -46,17 +46,12 @@ function Checkout() {
                 items.map(item => 
                   <div className="md:flex items-center py-8 border-t border-gray-200" key={item.id}>
                     <div className="w-1/4">
-                    <img src={item.images[0]} alt={item.title} className="w-full h-full object-center object-cover" />
+                    <img src={item.image} alt={item.title} className="w-full h-full object-center object-cover" />
                     </div>
                     <div className="md:pl-3 md:w-3/4 w-full">
-                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">ID: {item.id}</p>
+                    <p className="text-xs leading-3 text-gray-800 md:pt-0 py-4">ID: {item.id}</p>
                     <div className="flex items-center justify-between w-full pt-1 text-black">
                         <p className="text-base font-black leading-none text-gray-800">{item.title}</p>
-                        <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                        </select>
                     </div>
                     <div className="flex items-center justify-between pt-5 pr-6">
                         <div className="flex itemms-center">

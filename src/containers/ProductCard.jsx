@@ -19,7 +19,7 @@ const productCard = (props)  => {
 
 
   return (
-<a href={`/product/${props.id}`} className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg min-[320px]:max-md:w-[75%]">
+<div className="relative block overflow-hidden group w-[25%] border-2 p-2 rounded-lg min-[320px]:max-md:w-[75%] cursor-pointer">
   <button
     className="absolute right-4 top-4 z-10 rounded-full bg-white p-1.5 text-gray-900 transition hover:text-gray-900/75"
   >
@@ -42,7 +42,7 @@ const productCard = (props)  => {
   </button>
 
   <img
-    src={props.images}
+    src={props.image}
     alt={props.id}
     className="object-fit w-full h-64 transition duration-500 group-hover:scale-105 sm:h-72"
   />
@@ -59,7 +59,7 @@ const productCard = (props)  => {
        {added ? <p>Remove from cart</p> : <p>Add to cart</p> }
     </button>
   </div>
-</a>
+</div>
   )
 }
 

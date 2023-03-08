@@ -11,7 +11,7 @@ function MyOrder() {
     const totalOrder = () => {
         const reducer = (accumulator, currentValue) => accumulator + currentValue.price
         const total = state.cart.reduce(reducer, 0)
-        return total
+        return Math.round(total) 
     }
 
     const items = getUserCart()
@@ -25,8 +25,6 @@ function MyOrder() {
 
     const handleOrdersToggle = () => {
         setToggleOrders(!toggleOrders)
-        console.log(toggleOrders)
-        console.log(state.cart)
     }
 
   return (
@@ -46,17 +44,12 @@ function MyOrder() {
                 {state.cart.map( item =>    
                     <div className="md:flex items-center py-8 border-t border-gray-200" key={item.id}>
                     <div className="w-1/4">
-                    <img src={item.images[0]} alt={item.title} className="w-full h-full object-center object-cover" />
+                    <img src={item.image} alt={item.title} className="w-full h-full object-center object-cover" />
                     </div>
                     <div className="md:pl-3 md:w-3/4 w-full">
-                    <p className="text-xs leading-3 text-gray-800 md:pt-0 pt-4">ID: {item.id}</p>
+                    <p className="text-xs leading-3 text-gray-800 md:pt-0 py-4">ID: {item.id}</p>
                     <div className="flex items-center justify-between w-full pt-1 text-black">
                         <p className="text-base font-black leading-none text-gray-800">{item.title}</p>
-                        <select className="py-2 px-1 border border-gray-200 mr-6 focus:outline-none">
-                        <option>01</option>
-                        <option>02</option>
-                        <option>03</option>
-                        </select>
                     </div>
                     <div className="flex items-center justify-between pt-5 pr-6">
                         <div className="flex itemms-center">
@@ -91,7 +84,7 @@ function MyOrder() {
                             <p className="text-2xl leading-normal text-gray-800 pb-6 pt-6">Total</p>
                             <p className="text-2xl font-bold leading-normal text-right text-gray-800">${totalOrder() + 35 + 30}</p>
                         </div>
-                        <a href="/checkout" className="w-[50%] w-full p-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white">
+                        <a href="/checkout" className="w-[50%] w-full p-5 bg-gray-800 border-gray-800 border focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800 text-white text-center">
                         Checkout
                         </a>
                     </div>

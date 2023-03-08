@@ -5,7 +5,6 @@ import NotFound from "../pages/NotFound"
 import Register from '../pages/Register'
 import Login from '../pages/Login'
 import CheckoutPage from '../pages/Checkout'
-import ProductDetail from '../pages/ProductDetail'
 
 import AppContext from '../context/AppContext'
 import useInitialState from '../hooks/useInitialState'
@@ -24,7 +23,6 @@ function App() {
               <Route exact path='/register' element={<Register/>}/>
               <Route exact path='/login' element={<Login/>}/>
               <Route exact path='/checkout' element={<CheckoutPage/>}/>
-              <Route exact path="/product/:id" element={<ProductDetail/>}/>
               <Route path='*' element={<NotFound/>}/>
             </Routes>
           </BrowserRouter>

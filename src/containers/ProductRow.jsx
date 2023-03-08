@@ -20,7 +20,7 @@ const ProductRow = () => {
               <ProductCard 
                 key= {product.id}
                 id = {product.id}
-                images = {product.image}
+                image = {product.image}
                 title = {product.title}
                 price = {product.price}
               />

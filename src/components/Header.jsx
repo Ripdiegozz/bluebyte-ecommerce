@@ -61,7 +61,7 @@ function Header() {
                           className="peer h-full w-full outline-none text-sm text-gray-700 pr-2 bg-gray-50 b-2 border-0"
                           type="text"
                           id="search"
-                          placeholder="Buscar un producto..."/>
+                          placeholder="Search a product..." autoComplete='off'/>
                       </div>
                   </div>
               </li>
@@ -78,7 +78,7 @@ function Header() {
               <li className='nav-item flex justify-center items-center pb-2 min-[320px]:max-md:flex-col min-[320px]:max-md:gap-10'>
                   <button className="flex items-center"><i className="fa-solid fa-cart-shopping text-2xl hover:text-[#4762fc] transition-colors" onClick={handleOrdersToggle}></i>
                     {state.cart.length > 0 ? 
-                    <div className="top-3 absolute right-16 min-[320px]:max-md:hidden">
+                    <div>
                       <p className="flex h-2 w-2 items-center justify-center rounded-full bg-red-500 p-2 text-xs text-white">{state.cart.length}</p>
                     </div>: null}
                   </button>
